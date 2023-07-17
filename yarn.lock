@@ -944,18 +944,32 @@
   dependencies:
     redis-info "^3.0.8"
 
-"@bull-board/fastify@^4.2.2":
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/@bull-board/fastify/-/fastify-4.2.2.tgz#ebaa52852c6c48ddc2b064db7a3b92faec1f20cc"
-  integrity sha512-a1WcrCDb+SBGMrFFuEtcU8PI+RjycuUMBI+YZWei4Fg6jw37rEL594517fi43Lf+s/9F+xhrf//Mte3RRNWjhw==
+"@bull-board/api@5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@bull-board/api/-/api-5.6.0.tgz#c297a8b68aa02b9483cb941c1707cbce9724539b"
+  integrity sha512-a2O15p5oEm+/E/0I2l2nE2NKK0dkgNNTaamu+0gGyfUxWoCS3fCGX6LLEyl3jgOz0IC3GKRnwtVgbZFzk42sGQ==
   dependencies:
-    "@bull-board/api" "4.2.2"
-    "@bull-board/ui" "4.2.2"
+    redis-info "^3.0.8"
+
+"@bull-board/fastify@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@bull-board/fastify/-/fastify-5.6.0.tgz#546e4f14ce95641857bb40eeb37081088f46d0a7"
+  integrity sha512-JIGSrNxRko2cc4KTcU1Pp1iROKuAZGi2aLCx87nlgjmdtK51qbBfpDCsNEEc4ZspdddBKvaTUu67/3/n+3J67w==
+  dependencies:
+    "@bull-board/api" "5.6.0"
+    "@bull-board/ui" "5.6.0"
     "@fastify/static" "^6.4.0"
     "@fastify/view" "^7.0.0"
     ejs "^3.1.8"
 
-"@bull-board/ui@4.2.2", "@bull-board/ui@^4.2.2":
+"@bull-board/ui@5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@bull-board/ui/-/ui-5.6.0.tgz#5d24f215755649a3cdcdde7d217cc7e706c814a4"
+  integrity sha512-mc9T+kijDX5ZJMJCzeKPk9uLfOtcuefdDLPqWi961EiiNKfkDex+Gh41DAfcyrNjYsAkBsphvgBgcvundHPGIw==
+  dependencies:
+    "@bull-board/api" "5.6.0"
+
+"@bull-board/ui@^4.2.2":
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@bull-board/ui/-/ui-4.2.2.tgz#2d5d7cbabfdea292988458d58e267bbc4b33aff0"
   integrity sha512-QLWWTtVj6kQ01ox4OqCs/IdKm+jWFtLvhBU7RwYt8UxmxA6dZ8ffS6hWmjWk5sJ4cKk9GzPoASYMgFv0AMuh0w==

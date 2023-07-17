@@ -8,6 +8,9 @@ const connection: ConnectionOptions = {
   username: env.REDISUSER,
   password: env.REDISPASSWORD,
 };
+enum MetricsTime {
+  ONE_MONTH = 80640,
+}
 
 export const createQueue = (name: string) => new Queue(name, { connection });
 
@@ -17,26 +20,21 @@ export const setupQueueProcessor = async (queueName: string) => {
   });
   await queueScheduler.waitUntilReady();
 
-  /**
-   * This is a dummy worker set up to demonstrate job progress and to
-   * randomly fail jobs to demonstrate the UI.
-   *
-   * In a real application, you would want to set up a worker that
-   * actually does something useful.
-   */
-
   new Worker(
-    queueName,
+    'OutreachQueue',
     async (job) => {
-      for (let i = 0; i <= 100; i++) {
-        await job.updateProgress(i);
-        await job.log(`Processing job at interval ${i}`);
+      await fetch(`https://app.11x.ai/api/hasura/actions/processSequenceStep`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ input: { arg: { leadId: job.data.leadId } } }),
+      });
 
-        if (Math.random() * 200 < 1) throw new Error(`Random error ${i}`);
-      }
-
-      return { jobId: `This is the return value of job (${job.id})` };
+      return { name: job.name, id: job.id, status: 'completed' };
     },
-    { connection }
+    {
+      connection,
+    }
   );
 };
