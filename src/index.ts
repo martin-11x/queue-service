@@ -45,9 +45,7 @@ const run = async () => {
   );
 
   await server.listen({ port: env.PORT, host: '0.0.0.0' });
-  console.log(
-    `https://${env.RAILWAY_STATIC_URL}/add-job?id=1&email=hello%40world.com`
-  );
+  console.log(`https://${env.RAILWAY_STATIC_URL}/add-job`);
 };
 
 run().catch((e) => {
