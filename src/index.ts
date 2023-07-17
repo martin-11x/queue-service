@@ -23,10 +23,11 @@ const run = async () => {
     fastify();
 
   const serverAdapter = new FastifyAdapter();
-  // createBullBoard({
-  //   queues: [new BullMQAdapter(outreachQueue)],
-  //   serverAdapter,
-  // });
+  createBullBoard({
+    queues: [new BullMQAdapter(outreachQueue)],
+    // @ts-ignore
+    serverAdapter,
+  });
   serverAdapter.setBasePath('/');
   server.register(serverAdapter.registerPlugin(), {
     prefix: '/',
