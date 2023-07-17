@@ -23,6 +23,7 @@ export const setupQueueProcessor = async (queueName: string) => {
   new Worker(
     'OutreachQueue',
     async (job) => {
+      console.log(JSON.stringify(job.data, null, 4));
       await fetch(`https://app.11x.ai/api/hasura/actions/processSequenceStep`, {
         method: 'POST',
         headers: {
