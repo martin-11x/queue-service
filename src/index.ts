@@ -28,7 +28,7 @@ const run = async () => {
     // @ts-ignore
     serverAdapter,
   });
-  serverAdapter.setBasePath('/');
+  serverAdapter.setBasePath('/ui');
   server.register(serverAdapter.registerPlugin(), {
     prefix: '/',
     basePath: '/',
