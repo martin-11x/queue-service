@@ -34,9 +34,10 @@ const run = async () => {
     basePath: '/',
   });
 
-  server.get(
+  server.post(
     '/add-job',
     (req: FastifyRequest<{ Querystring: AddJobQueryString }>, reply) => {
+      console.log('req.body 😛😛', req.body);
       outreachQueue.add(`OutreachQueue`, req.body);
       reply.send({
         ok: true,
